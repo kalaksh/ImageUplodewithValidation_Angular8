@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { ProgressComponent } from './progress/progress.component';
+import { ImageUploadService } from "./services/image-upload.service";
+@NgModule(
+  {declarations: [AppComponent, FileUploadComponent, ProgressComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ImageUploadService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
